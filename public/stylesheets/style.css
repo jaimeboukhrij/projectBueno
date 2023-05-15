@@ -4,6 +4,9 @@
   font-family: sans-serif;
 }
 
+img {
+  width: 200px;
+}
 
 .nav-app img {
   width: 30px;

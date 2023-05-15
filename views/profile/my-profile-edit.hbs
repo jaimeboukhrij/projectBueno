@@ -6,7 +6,7 @@
             <h1>EDIT PROFILE</h1>
             <hr>
 
-            <form action="/myProfile/{{user.id}}/edit" method="POST">
+            <form action="/myProfile/{{user.id}}/edit" method="POST" enctype="multipart/form-data">
                 <div class="mb-3 mt-5">
                     <label for="username" class="form-label">New username</label>
                     <input type="text" class="form-control" id="username" name="username" value="{{user.username}}">
@@ -83,6 +83,13 @@
                                     <option value="Sorry, not a pet person">Sorry, not a pet person</option>
                                 </select>
                             </div>
+                            <div class="mb-3">
+                                <input type="file" name="imageUrl" />
+                            </div>
+                            <div class="mb-3">
+                                <img src=" {{user.imageUrl}}" alt="">
+                            </div>
+
                         </div>
                     </div>
                 </div>
