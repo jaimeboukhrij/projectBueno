@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <form action="/logIn" method="POST">
+
+                <h1>Login</h1>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Dirección de email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="checkbox" id="checkbox" onclick="hidePassword();">
+                    <label>Show Password</label> <br>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="error">{{errorMessage}}</div>
+                {{/if}}
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Acceder</button>
+                </div>
+
+                <p>Aun no estas registrado? <a href="/signUp">Registrate!</a></p>
+
+                <script>
+                    function hidePassword() {
+                        var x = document.getElementById("password");
+                        if (x.type == "password") { x.type = "text"; }
+                        else { x.type = "password"; }
+                    }
+                </script>
+            </form>
+
+        </div>
+
+    </div>
+</div>
