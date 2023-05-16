@@ -39,6 +39,8 @@ router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, 
     const { id } = req.params
     const { username, name, secondName, email, phoneNumber, aptitudes } = req.body
 
+
+
     if (req.file) {
         const { path: imageUrl } = req.file
         User
@@ -54,16 +56,6 @@ router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, 
 
 })
 
-router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (req, res, next) => {
-    const { idDestination, idOrigin, date } = req.params
-    Trip
-        .find({ $and: [{ "origin.id": { $eq: idOrigin } }, { "destination.id": { $eq: idDestination } }, { "departureDay": { $eq: date } }] })
-        .populate("owner")
-        .then(trip => {
-            if (trip.length > 0) { res.render("trip/list-trip", { trip }) }
-            else { (res.send("no hay viaje")) }
-        })
-        .catch(err => next(err))
-})
+
 
 module.exports = router
