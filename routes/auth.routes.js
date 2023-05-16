@@ -14,7 +14,7 @@ router.get("/signUp", (req, res, next) => res.render("auth/signUp"))
 router.post("/signUp",uploaderMiddleware.single('imageUrl') ,(req, res, next) => {
 
     const { path: imageUrl } = req.file
-    const { username, name, secondName,password, role, dni, email, phoneNumber, aptitudes} = req.body
+    const { username, name, secondName, password, role, dni, email, phoneNumber, aptitudes} = req.body
     bcrypt
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(password, salt))
