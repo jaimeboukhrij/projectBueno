@@ -1,17 +1,17 @@
-let origen;
-let destino;
+let origin;
+let destination;
 
 function initAutocomplete() {
-    origen = new google.maps.places.Autocomplete(
-        document.getElementById('origen'),
+    origin = new google.maps.places.Autocomplete(
+        document.getElementById('origin'),
         {
             types: ['locality'],
             componentRestrictions: { ' country': ['ES'] },
             fields: ['place_id', 'geometry', 'name']
         });
 
-    destino = new google.maps.places.Autocomplete(
-        document.getElementById("destino"),
+    destination = new google.maps.places.Autocomplete(
+        document.getElementById("destination"),
         {
             types: ['locality'],
             componentRestrictions: { ' country': ['ES'] },
@@ -19,13 +19,13 @@ function initAutocomplete() {
         });
 
 
-    origen.addListener("place_changed", onPlaceChanged);
-    destino.addListener("place_changed", PlaceChanged);
+    origin.addListener("place_changed", onPlaceChanged);
+    destination.addListener("place_changed", PlaceChanged);
 
 }
 
 function onPlaceChanged() {
-    var place = origen.getPlace();
+    var place = origin.getPlace();
     console.log(place)
     if (!place.geometry) {
         // User did not select a prediction; reset the input field7
@@ -37,7 +37,7 @@ function onPlaceChanged() {
     }
 }
 function PlaceChanged() {
-    var place = destino.getPlace();
+    var place = destination.getPlace();
     console.log(place.name)
 
     if (!place.geometry) {
@@ -50,9 +50,9 @@ function PlaceChanged() {
 }
 
 function miFunc() {
-    var name1 = origen.getPlace().name;
-    var name2 = destino.getPlace().name;
+    var name1 = origin.getPlace().name;
+    var name2 = destination.getPlace().name;
     var idname1 = origen.getPlace().place_id
-    var idname2 = destino.getPlace().place_id
+    var idname2 = destination.getPlace().place_id
     window.location.replace(`seachTrip/${name1}/${name2}/${idname1}/${idname2}`)
 }

@@ -19,11 +19,10 @@ const app = express();
 require("./config")(app);
 
 // default value for title local
-const capitalize = require("./utils/capitalize");
+
 
 const projectName = "Iron Car";
 
-app.locals.appTitle = `${capitalize(projectName)}`;
 
 // Session config
 require('./config/session.config')(app)

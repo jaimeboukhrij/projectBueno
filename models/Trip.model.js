@@ -5,21 +5,12 @@ const tripSchema = new Schema(
     {
         origin: {
             name: String,
-            location: {
-                type: {
-                    type: String
-                },
-                coordinates: [Number],
-            },
+            id: String,
+
         },
         destination: {
             name: String,
-            location: {
-                type: {
-                    type: String
-                },
-                coordinates: [Number],
-            },
+            id: String,
         },
         departureDate: Date,
         arrivalDate: Date,
@@ -28,7 +19,7 @@ const tripSchema = new Schema(
             trim: true,
             required: true
         },
-        driver: {
+        owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
