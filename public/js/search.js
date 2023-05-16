@@ -51,8 +51,8 @@ function PlaceChanged() {
 }
 
 function miFunc() {
-    var name1 = document.getElementById('origin').value
-    var name2 = document.getElementById('destination').value
+    var name1 = origin.getPlace().name;
+    var name2 = destination.getPlace().name;
     var idname1 = origin.getPlace().place_id
     var idname2 = destination.getPlace().place_id
     date = document.getElementById('dayDeparture').value

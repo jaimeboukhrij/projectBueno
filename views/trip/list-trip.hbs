@@ -1,29 +1,10 @@
-<div class="list-trip">
-    {{#each trip}}
+{{#each trip}}
+<div>
     <p>origen: {{origin.name}}</p>
     <p>destino: {{destination.name}}</p>
     <p>Salida: {{departureDate}}</p>
     <p>Llegada: {{arrivalDate}}</p>
     <p>Price: {{price}} €</p>
-    {{!-- {{#../each owner}}
-    <p>Owner: {{name}} €</p>
-    {{/owner}} --}}
-    <p>El piloto es: {{owner.name}}</p>
-    {{#each passengers}}
-    <p>Los pasajeros son: {{name}}</p>
-    {{/each}}
-
-
-
-
-    <form action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
-        method="POST" style="display: inline">
-        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
-        <input type="submit" value="Apuntarme" class="btn btn-danger">
-    </form>
-    {{/each}}
-
-
-
-
+    <p>Owner: {{owner}} €</p>
 </div>
+{{/each}}

@@ -20,22 +20,22 @@ require('./config/session.config')(app)
 
 //     app.locals.notLogged = !req.session.currentUser
 //     next()
-
+    
 // })
 
 app.use((req, res, next) => {
     app.locals.isLogged = req.session.currentUser
     next()
-
+    
 })
 
 app.use((req, res, next) => {
-    app.locals.isPassenger = req.session.currentUser?.role === "passenger"
+app.locals.isPassenger = req.session.currentUser?.role === "passenger"
     next()
 })
 
 app.use((req, res, next) => {
-    app.locals.isDriver = (req.session.currentUser?.role === "driver" || req.session.currentUser?.role === "admin")
+app.locals.isDriver = (req.session.currentUser?.role === "driver" || req.session.currentUser?.role === "admin")
     next()
 })
 
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 
 // app.locals.isAdmin = req.session.currentUser?.role === "admin"
 //     next()
-
+  
 // })
 
 
