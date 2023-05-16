@@ -14,9 +14,13 @@ const projectName = "Iron Car";
 
 app.locals.appTitle = `${projectName}`;
 
-
 require('./config/session.config')(app)
 
+app.use((req, res, next) => {
+    app.locals.isLogged = req.session.currentUser
+    console.log(app.locals.isLogged)
+    next()
+})
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

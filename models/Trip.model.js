@@ -1,37 +1,36 @@
 const { Schema, model } = require("mongoose");
+const User = require('../models/User.model');
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
-const tripSchema = new Schema(
-    {
-        origin: {
-            name: String,
-            id: String,
+const tripSchema = new Schema({
+    origin: {
+        name: String,
+        id: String,
+    },
+    destination: {
+        name: String,
+        id: String,
+    },
+    departureDate: Date,
+    arrivalDate: Date,
+    departureDay: String,
+    price: {
+        type: String,
+        trim: true,
+        required: true
+    },
+    owner: {
+        ref: 'User',
+        type: Schema.Types.ObjectId,
 
-        },
-        destination: {
-            name: String,
-            id: String,
-        },
-        departureDate: Date,
-        arrivalDate: Date,
-        price: {
-            type: String,
-            trim: true,
-            required: true
-        },
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        },
-        passengers: [{
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }],
 
     },
-    {
-        timestamps: true,
-    });
+    passengers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
+}, {
+    timestamps: true
+});
 
 const Trip = model("Trip", tripSchema);
 

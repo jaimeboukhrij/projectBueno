@@ -6,6 +6,7 @@ const User = require('../models/User.model')
 const { isLoggedOut, isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 const userApiHandler = require("../services/user-api.service")
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
+const Trip = require("../models/Trip.model")
 
 
 
@@ -36,18 +37,33 @@ router.get("/myProfile/:id/edit", isLoggedIn, (req, res, next) => {
 router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
 
     const { id } = req.params
-    const { path: imageUrl } = req.file
     const { username, name, secondName, email, phoneNumber, aptitudes } = req.body
 
-    User
-        .findByIdAndUpdate(id, { username, name, secondName, email, phoneNumber, aptitudes, imageUrl })
-        .then(() => res.redirect("/"))
-        .catch(err => console.log(err))
+    if (req.file) {
+        const { path: imageUrl } = req.file
+        User
+            .findByIdAndUpdate(id, { username, name, secondName, email, phoneNumber, aptitudes, imageUrl })
+            .then(() => res.redirect("/"))
+            .catch(err => console.log(err))
+    } else {
+        User
+            .findByIdAndUpdate(id, { username, name, secondName, email, phoneNumber, aptitudes })
+            .then(() => res.redirect("/"))
+            .catch(err => console.log(err))
+    }
 
 })
 
-router.get("/seachTrip/:origin/:destination/:idorigin/:iddestination", (req, res, next) => {
-    res.send(req.params)
+router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (req, res, next) => {
+    const { idDestination, idOrigin, date } = req.params
+    Trip
+        .find({ $and: [{ "origin.id": { $eq: idOrigin } }, { "destination.id": { $eq: idDestination } }, { "departureDay": { $eq: date } }] })
+        .populate("owner")
+        .then(trip => {
+            if (trip.length > 0) { res.render("trip/list-trip", { trip }) }
+            else { (res.send("no hay viaje")) }
+        })
+        .catch(err => next(err))
 })
 
 module.exports = router

@@ -1,5 +1,6 @@
 let origin;
 let destination;
+let date;
 
 function initAutocomplete() {
     origin = new google.maps.places.Autocomplete(
@@ -52,7 +53,8 @@ function PlaceChanged() {
 function miFunc() {
     var name1 = origin.getPlace().name;
     var name2 = destination.getPlace().name;
-    var idname1 = origen.getPlace().place_id
+    var idname1 = origin.getPlace().place_id
     var idname2 = destination.getPlace().place_id
-    window.location.replace(`seachTrip/${name1}/${name2}/${idname1}/${idname2}`)
+    date = document.getElementById('dayDeparture').value
+    window.location.replace(`seachTrip/${date}/${name1}/${name2}/${idname1}/${idname2}`)
 }
