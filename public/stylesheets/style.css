@@ -1,73 +1,77 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  font-family: 'Quicksand', sans-serif;
-  font-family: 'Roboto', sans-serif;
+body {
+   margin: 0;
+   padding: 0;
+   font-family: 'Poppins', sans-serif;
+   font-family: 'Quicksand', sans-serif;
+   font-family: 'Roboto', sans-serif;
 }
 
 img {
-  width: 200px;
+   width: 200px;
 }
 
-  .navbar-brand img {
-  width: 40px;
+.navbar-brand img {
+   width: 40px;
 }
 
 
 
 
-   .navbar {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #c6def5;
-   }
+.navbar {
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background-color: #c6def5;
+}
 
-   .navbar-brand,
-   .navbar-nav .nav-link {
-      color: #353535;
-   }
+.navbar-brand,
+.navbar-nav .nav-link {
+   color: #353535;
+}
 
-   .navbar-brand {
-      font-weight: bold;
-   }
+.navbar-brand {
+   font-weight: bold;
+}
 
-   .nav-link {
-      font-weight: 500;
-   }
+.nav-link {
+   font-weight: 500;
+}
 
-   .nav-link:hover,
-   .nav-link:focus {
-      color: #007bff;
-   }
+.nav-link:hover,
+.nav-link:focus {
+   color: #007bff;
+}
 
-   .navbar-nav .dropdown-menu {
-      font-size: 14px;
-      border: none;
-      border-radius: 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-   }
+.navbar-nav .dropdown-menu {
+   font-size: 14px;
+   border: none;
+   border-radius: 0;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-   .dropdown-item {
-      color: #333;
-   }
+.dropdown-item {
+   color: #333;
+}
 
-   .dropdown-item:hover,
-   .dropdown-item:focus {
-      background-color: #007bff;
-      color: #fff;
-   }
+.dropdown-item:hover,
+.dropdown-item:focus {
+   background-color: #007bff;
+   color: #fff;
+}
 
-   .dropdown-divider {
-      border-color: #007bff;
-   }
+.dropdown-divider {
+   border-color: #007bff;
+}
 
 
 
 #error {
-  background-color: rgb(255, 202, 202);
-  right: 10px;
-  bottom: 10px;
-  padding: 5px;
-  text-align: center;
-  animation: showFromBottom 6s forwards;
+   background-color: rgb(255, 202, 202);
+   right: 10px;
+   bottom: 10px;
+   padding: 5px;
+   text-align: center;
+   animation: showFromBottom 6s forwards;
+}
+
+.list-trip {
+   margin: 50px;
 }

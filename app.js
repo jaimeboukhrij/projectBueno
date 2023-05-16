@@ -18,7 +18,6 @@ require('./config/session.config')(app)
 
 app.use((req, res, next) => {
     app.locals.isLogged = req.session.currentUser
-    console.log(app.locals.isLogged)
     next()
 })
 // 👇 Start handling routes here
