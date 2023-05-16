@@ -3,10 +3,10 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const saltRounds = 10
 const User = require('../models/User.model')
-const Trip = require("../models/Trip.model")
-const { isLoggedIn } = require('../middlewares/route-guard')
+const { isLoggedOut, isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 const userApiHandler = require("../services/user-api.service")
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
+const Trip = require("../models/Trip.model")
 
 
 
@@ -34,7 +34,7 @@ router.get("/myProfile/:id/edit", isLoggedIn, (req, res, next) => {
 
 
 
-router.post("/myProfile/:id/edit", isLoggedIn, uploaderMiddleware.single('imageUrl'), (req, res, next) => {
+router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
 
     const { id } = req.params
     const { username, name, secondName, email, phoneNumber, aptitudes } = req.body
@@ -55,6 +55,7 @@ router.post("/myProfile/:id/edit", isLoggedIn, uploaderMiddleware.single('imageU
     }
 
 })
+
 
 
 module.exports = router

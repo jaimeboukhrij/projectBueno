@@ -1,5 +1,5 @@
 const isLoggedIn = (req, res, next) => {
-    req.session.currentUser ? next() : res.redirect("/logIn", { errorMessage: "access denied" })
+    req.session.currentUser ? next() : res.redirect('/logIn')
 }
 const isLoggedOut = (req, res, next) => {
     !req.session.currentUser ? next() : res.redirect('/')
@@ -12,7 +12,7 @@ const checkRoles = (...admittedRoles) => (req, res, next) => {
     if (isAdmitted) {
         next()
     } else {
-        res.render('auth/logIn', { errorMessage: "access denied" })
+        res.render('auth/login', { errorMessage: 'Acceso no autorizado' })
     }
 }
 
