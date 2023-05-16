@@ -4,20 +4,9 @@ const router = express.Router();
 router.use(express.json());
 
 
-
-
 router.get("/", (req, res, next) => {
     res.render("index");
 });
-
-
-
-
-
-
-
-
-
 
 
 

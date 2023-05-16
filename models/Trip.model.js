@@ -28,7 +28,7 @@ const tripSchema = new Schema(
             trim: true,
             required: true
         },
-        driver: {
+            owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
