@@ -39,8 +39,6 @@ router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, 
     const { id } = req.params
     const { username, name, secondName, email, phoneNumber, aptitudes } = req.body
 
-
-
     if (req.file) {
         const { path: imageUrl } = req.file
         User
