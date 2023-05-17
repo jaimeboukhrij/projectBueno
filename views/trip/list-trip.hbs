@@ -1,28 +1,35 @@
-<div class="list-trip">
-    {{#each trip}}
-    <p>origen: {{origin.name}}</p>
-    <p>destino: {{destination.name}}</p>
-    <p>Salida: {{departureDate}}</p>
-    <p>Llegada: {{arrivalDate}}</p>
-    <p>Price: {{price}} €</p>
-    {{!-- {{#../each owner}}
-    <p>Owner: {{name}} €</p>
-    {{/owner}} --}}
-    <p>El piloto es: {{owner.name}}</p>
-    <p>Los pasajeros son:</p>
-    {{#each passengers}}
-    <p>{{name}}</p>
+<div style="display: none">
+    <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location"
+        value="Madrid, España" />
 
-    {{/each}}
+    <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"
+        value="Valencia, España" />
 
-    <form action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
-        method="POST" style="display: inline">
-        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
-        <input type="submit" value="Apuntarme" class="btn btn-danger">
-    </form>
-    {{/each}}
+    <div id="mode-selector" class="controls">
+        <input type="radio" name="type" id="changemode-walking" checked="checked" />
+        <label for="changemode-walking">Walking</label>
 
+        <input type="radio" name="type" id="changemode-transit" />
+        <label for="changemode-transit">Transit</label>
 
-
-
+        <input type="radio" name="type" id="changemode-driving" />
+        <label for="changemode-driving">Driving</label>
+    </div>
 </div>
+
+<div id="map"></div>
+
+<!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtc80oZ9lOnbwQODIRr0lG8MOlhxpXb94&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+
+
+<script src="/js/list-trip.js">
+</script>

@@ -55,7 +55,6 @@ router.post("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (r
       const newPassengers = [...trip.passengers, newPass]
       Trip.findByIdAndUpdate(idTrip, { passengers: newPassengers })
         .then(() => res.redirect("/"))
-      //trip.passengers.push(passengers)
     })
 
     .catch(err => next(err))
