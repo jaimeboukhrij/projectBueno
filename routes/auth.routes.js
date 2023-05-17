@@ -12,12 +12,13 @@ const uploaderMiddleware = require('../middlewares/uploader.middleware')
 router.get("/signUp", (req, res, next) => res.render("auth/signUp"))
 router.post("/signUp", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
     const { path: imageUrl } = req.file
-    const { username, name, secondName, password, role, dni, email, phoneNumber, aptitudes } = req.body
+    const { name, secondName, password, role, dni, email, phoneNumber, aptitudes } = req.body
     bcrypt
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(password, salt))
         .then(hashedPassword => {
-            User.create({ username, name, secondName, imageUrl, password: hashedPassword, role, dni, email, phoneNumber, aptitudes })
+
+            User.create({ name, secondName, imageUrl, password: hashedPassword, role, dni, email, phoneNumber, aptitudes })
         })
         .then(() => res.redirect('/'))
         .catch(err => next(err))
