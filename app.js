@@ -6,37 +6,21 @@ require("./db");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-
-require("./config")(app);
+const {isLogged, isPassenger, isDriver } = require("./middlewares/loggedRoles.middleware")
 
 
 const projectName = "Iron Car";
 
 app.locals.appTitle = `${projectName}`;
 
+require("./config")(app)
 require('./config/session.config')(app)
 
-app.use((req, res, next) => {
-    app.locals.isLogged = req.session.currentUser
-    next()
-})
-// 👇 Start handling routes here
-const indexRoutes = require("./routes/index.routes");
-app.use("/", indexRoutes);
+app.use(isLogged)
+app.use(isPassenger)
+app.use(isDriver)
 
-const apiRoutes = require("./routes/api.routes");
-app.use("/api", apiRoutes);
-
-const userRoutes = require("./routes/user.routes");
-app.use("/", userRoutes);
-
-const tripRoutes = require("./routes/trip.routes");
-app.use("/", tripRoutes);
-
-const authRoutes = require("./routes/auth.routes");
-app.use("/", authRoutes);
-
-//  To handle errors. 
+require("./routes")(app)
 require("./error-handling")(app);
 
 module.exports = app;
