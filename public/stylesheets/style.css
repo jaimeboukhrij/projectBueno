@@ -5,6 +5,7 @@ body {
    font-family: 'Quicksand', sans-serif;
    font-family: 'Roboto', sans-serif;
    background: #e0e0e0;
+    
 }
 
 .principal {
@@ -20,7 +21,6 @@ img {
 .navbar-brand img {
    width: 40px;
 }
-
 
 
 .navbar {

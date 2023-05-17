@@ -20,124 +20,153 @@
 
 <body>
 
-
+   {{#unless isLogged}}
    <div class="sidebar close">
       <div class="logo-details">
-         <i class='bx bxl-kickstarter bx-tada' style='color:#080808'></i>
-         <span class="logo_name" style='color:#080808'>Sistemas</span>
+         <i class='bx bxs-car bx-tada' style='color:#080808'></i>
+
+         <span class="logo_name" style='color:#080808'>Iron Car</span>
       </div>
       <ul class="nav-links">
-         <li>
-            <a href="/">
-               <i class='bx bx-grid-alt'></i>
-               <span class="link_name">Panel</span>
-            </a>
-            <ul class="sub-menu blank">
-               <li><a class="link_name" href="/">Panel</a></li>
-            </ul>
-         </li>
+
+         {{!-- START // SIGN UP - LOG IN --}}
          <li>
             <div class="iocn-link">
                <a href="#">
-                  <i class='bx bx-collection'></i>
-                  <span class="link_name">Categoría</span>
+                  <i class='bx bx-log-in-circle'></i>
+                  <span class="link_name">Start</span>
                </a>
                <i class='bx bxs-chevron-down arrow'></i>
             </div>
             <ul class="sub-menu">
-               <li><a class="link_name" href="#">Categoría</a></li>
-               <li><a href="#">Sub Menú 1</a></li>
+               <li><a href="/signUp">Sign up</a></li>
+               <li><a href="/logIn">Log in</a></li>
             </ul>
          </li>
+
+
+         {{!-- SEARCH TRIP --}}
          <li>
             <div class="iocn-link">
-               <a href="#">
-                  <i class='bx bx-book-alt'></i>
-                  <span class="link_name">Productos</span>
+               <a href="/">
+                  <i class='bx bx-search-alt'></i>
+                  <span class="link_name">Search trip</span>
                </a>
-               <i class='bx bxs-chevron-down arrow'></i>
             </div>
             <ul class="sub-menu">
-               <li><a class="link_name" href="#">Productos</a></li>
-               <li><a href="#">Sub Menú 1</a></li>
-               <li><a href="#">Sub Menú 2</a></li>
+               <li><a href="/">Search trip</a></li>
             </ul>
-         </li>
-         <li>
-            <a href="#">
-               <i class='bx bx-pie-chart-alt-2'></i>
-               <span class="link_name">Reportes</span>
-            </a>
-            <ul class="sub-menu blank">
-               <li><a class="link_name" href="#">Reportes</a></li>
-            </ul>
-         </li>
-         <li>
-            <div class="iocn-link">
-               <a href="#">
-                  <i class='bx bxs-user-voice'></i>
-                  <span class="link_name">Clientes</span>
-               </a>
-               <i class='bx bxs-chevron-down arrow'></i>
-            </div>
-            <ul class="sub-menu">
-               <li><a class="link_name" href="#">Clientes</a></li>
-               <li><a href="#">Sub Menú 1</a></li>
-               <li><a href="#">Sub Menú 2</a></li>
-               <li><a href="#">Sub Menú 3</a></li>
-            </ul>
-         </li>
-         <li>
-            <a href="#">
-               <i class='bx bxs-contact'></i>
-               <span class="link_name">Contactos</span>
-            </a>
-            <ul class="sub-menu blank">
-               <li><a class="link_name" href="#">Contactos</a></li>
-            </ul>
-         </li>
-         <li>
-            <a href="#">
-               <i class='bx bxs-edit-location'></i>
-               <span class="link_name">Sedes</span>
-            </a>
-            <ul class="sub-menu blank">
-               <li><a class="link_name" href="#">Sedes</a></li>
-            </ul>
-         </li>
-         <li>
-            <a href="#">
-               <i class='bx bx-cog'></i>
-               <span class="link_name">Configuración</span>
-            </a>
-            <ul class="sub-menu blank">
-               <li><a class="link_name" href="#">Configuración</a></li>
-            </ul>
-         </li>
-         <li>
-            <div class="profile-details">
-               <div class="profile-content">
-                  <img src="/images/profile.jpg" alt="profileImg">
-               </div>
-               <div class="name-job">
-                  <div class="profile_name">¡Bienvenido, Jaime!</div>
-                  <div class="job">Driver</div>
-               </div>
-               <i class='bx bx-log-out'></i>
-            </div>
          </li>
       </ul>
+
    </div>
+   {{/unless}}
+
+
+
+   {{#if isLogged}}
+   <div class="sidebar close">
+      <div class="logo-details">
+         <i class='bx bxs-car bx-tada' style='color:#080808'></i>
+
+         <span class="logo_name" style='color:#080808'>Iron Car</span>
+      </div>
+      <ul class="nav-links">
+
+
+         {{!-- START // SIGN UP - LOG IN --}}
+         <li>
+            <div class="iocn-link">
+               <a href="#">
+                  <i class='bx bx-log-in-circle'></i>
+                  <span class="link_name">Start</span>
+               </a>
+               <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+               <li><a href="/signUp">Sign up</a></li>
+               <li><a href="/logIn">Log in</a></li>
+            </ul>
+         </li>
+
+
+
+         {{!-- SEARCH TRIP --}}
+         <li>
+            <div class="iocn-link">
+               <a href="/">
+                  <i class='bx bx-search-alt'></i>
+                  <span class="link_name">Search trip</span>
+               </a>
+            </div>
+            <ul class="sub-menu">
+               <li><a href="/">Search trip</a></li>
+            </ul>
+         </li>
+
+
+         {{!-- CREATE TRIP --}}
+         {{#if isDriver}}
+         <li>
+            <div class="iocn-link">
+               <a href="/createTrip">
+                  <i class='bx bx-plus'></i>
+                  <span class="link_name">Create trip</span>
+               </a>
+            </div>
+            <ul class="sub-menu">
+               <li><a href="/createTrip"> Create trip</a></li>
+            </ul>
+         </li>
+         {{/if}}
+
+
+
+         {{!-- LOG OUT --}}
+         <li>
+            <div class="iocn-link">
+               <a href="/logOut">
+                  <i class='bx bx-log-out-circle'></i>
+                  <span class="link_name">Log out</span>
+               </a>
+            </div>
+            <ul class="sub-menu">
+               <li><a href="/logOut">Log out</a></li>
+            </ul>
+         </li>
+
+
+         {{!-- MY PROFILE --}}
+         <li>
+            <div class="profile-details">
+               <a href="/myProfile">
+                  <div class="profile-content">
+                     <img src="/images/profile.jpg" alt="profileImg">
+                  </div>
+                  <div class="name-job">
+                     <div class="profile_name">¡Bienvenido, Jaime!</div>
+                     <div class="job">Driver</div>
+                  </div>
+                  <i class='bx bx-log-out'></i>
+               </a>
+            </div>
+         </li>
+
+      </ul>
+
+   </div>
+   {{/if}}
+
+
    <section class="home-section">
+
       <div class="home-content">
          <i class='bx bx-menu'></i>
-
       </div>
 
+      {{{body}}}
+
    </section>
-   {{{body}}}
-
-
 
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script src="/js/script.js"></script>
