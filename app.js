@@ -6,8 +6,7 @@ require("./db");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-const {isLogged, isPassenger, isDriver } = require("./middlewares/loggedRoles.middleware")
-
+const { isLogged, isPassenger, isDriver, userName, userRole } = require("./middlewares/loggedRoles.middleware")
 
 const projectName = "Iron Car";
 
@@ -19,6 +18,8 @@ require('./config/session.config')(app)
 app.use(isLogged)
 app.use(isPassenger)
 app.use(isDriver)
+app.use(userName)
+app.use(userRole)
 
 require("./routes")(app)
 require("./error-handling")(app);

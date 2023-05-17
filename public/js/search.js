@@ -18,11 +18,8 @@ function initAutocomplete() {
             componentRestrictions: { ' country': ['ES'] },
             fields: ['place_id', 'geometry', 'name']
         });
-
-
     origin.addListener("place_changed", onPlaceChanged);
     destination.addListener("place_changed", PlaceChanged);
-
 }
 
 function onPlaceChanged() {
@@ -38,23 +35,19 @@ function onPlaceChanged() {
     }
 }
 function PlaceChanged() {
-    var place = destination.getPlace();
-    console.log(place.name)
-
+    let place = destination.getPlace();
     if (!place.geometry) {
-        document.getElementById('autocomplete').placeholder =
-            'Enter a place';
+        document.getElementById('autocomplete').placeholder = 'Enter a place';
     } else {
         document.getElementById('details').innerHTML = place.name;
     }
-
 }
 
 function miFunc() {
-    var name1 = document.getElementById('origin').value
-    var name2 = document.getElementById('destination').value
-    var idname1 = origin.getPlace().place_id
-    var idname2 = destination.getPlace().place_id
+    let name1 = document.getElementById('origin').value
+    let name2 = document.getElementById('destination').value
+    let idname1 = origin.getPlace().place_id
+    let idname2 = destination.getPlace().place_id
     date = document.getElementById('dayDeparture').value
     window.location.replace(`seachTrip/${date}/${name1}/${name2}/${idname1}/${idname2}`)
 }

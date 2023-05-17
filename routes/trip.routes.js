@@ -4,7 +4,6 @@ const Trip = require("../models/Trip.model")
 
 
 router.get("/createTrip", (req, res, next) => res.render("trip/create-trip"))
-
 router.post("/createTrip", (req, res, next) => {
   const { origin, destination, originId, destinationId, departureDate, arrivalDate, price, carModel, carTuition } = req.body
   const org = {
@@ -17,13 +16,10 @@ router.post("/createTrip", (req, res, next) => {
   }
   const departureDay = departureDate.slice(0, 10)
   const { _id: owner } = req.session.currentUser
-
-
   Trip
     .create({ origin: org, destination: dest, departureDate, arrivalDate, price, carModel, carTuition, owner, departureDay })
     .then(() => res.redirect("/"))
     .catch(err => next(err))
-
 })
 
 
@@ -32,16 +28,17 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (re
   Trip
     .find({ $and: [{ "origin.id": { $eq: idOrigin } }, { "destination.id": { $eq: idDestination } }, { "departureDay": { $eq: date } }] })
     .populate({
-      path: "passengers",
-      select: 'name'
+      path: "passengers"
+
     })
     .populate({
-      path: "owner",
-      select: 'name'
+      path: "owner"
+
     })
     .then(trip => {
+      console.log(trip)
       if (trip.length > 0) { res.render("trip/list-trip", { trip }) }
-      else { (res.send("no hay viaje")) }
+      else { res.send("no hay viaje") }
     })
     .catch(err => next(err))
 })

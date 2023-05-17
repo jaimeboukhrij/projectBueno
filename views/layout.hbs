@@ -22,17 +22,19 @@
 
    {{#unless isLogged}}
    <div class="sidebar close">
-      <div class="logo-details">
-         <i class='bx bxs-car bx-tada' style='color:#080808'></i>
+      <a href="">
+         <div class="logo-details">
+            <i class='bx bxs-car bx-tada' style='color:#080808'></i>
 
-         <span class="logo_name" style='color:#080808'>Iron Car</span>
-      </div>
+            <span class="logo_name" style='color:#080808'>Iron Car</span>
+         </div>
+      </a>
       <ul class="nav-links">
 
          {{!-- START // SIGN UP - LOG IN --}}
          <li>
             <div class="iocn-link">
-               <a href="#">
+               <a href="/">
                   <i class='bx bx-log-in-circle'></i>
                   <span class="link_name">Start</span>
                </a>
@@ -63,33 +65,16 @@
    {{/unless}}
 
 
-
    {{#if isLogged}}
    <div class="sidebar close">
-      <div class="logo-details">
-         <i class='bx bxs-car bx-tada' style='color:#080808'></i>
+      <a href="">
+         <div class="logo-details">
+            <i class='bx bxs-car bx-tada' style='color:#080808'></i>
 
-         <span class="logo_name" style='color:#080808'>Iron Car</span>
-      </div>
+            <span class="logo_name" style='color:#080808'>Iron Car</span>
+         </div>
+      </a>
       <ul class="nav-links">
-
-
-         {{!-- START // SIGN UP - LOG IN --}}
-         <li>
-            <div class="iocn-link">
-               <a href="#">
-                  <i class='bx bx-log-in-circle'></i>
-                  <span class="link_name">Start</span>
-               </a>
-               <i class='bx bxs-chevron-down arrow'></i>
-            </div>
-            <ul class="sub-menu">
-               <li><a href="/signUp">Sign up</a></li>
-               <li><a href="/logIn">Log in</a></li>
-            </ul>
-         </li>
-
-
 
          {{!-- SEARCH TRIP --}}
          <li>
@@ -144,8 +129,8 @@
                      <img src="/images/profile.jpg" alt="profileImg">
                   </div>
                   <div class="name-job">
-                     <div class="profile_name">¡Bienvenido, Jaime!</div>
-                     <div class="job">Driver</div>
+                     <div class="profile_name">¡Bienvenido, {{ userName}}!</div>
+                     <div class="job">{{userRole}}</div>
                   </div>
                   <i class='bx bx-log-out'></i>
                </a>
