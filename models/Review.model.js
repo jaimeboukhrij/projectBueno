@@ -5,11 +5,18 @@ const reviewSchema = new Schema(
     {
         rating: {
            type: Number
-
         },
         text: {
             type: String
-        }
+        },
+        owner: {
+        ref: 'User',
+        type: Schema.Types.ObjectId,
+        },
+        addressee: {
+        ref: 'User',
+        type: Schema.Types.ObjectId,
+    },
     },
     {
         timestamps: true,

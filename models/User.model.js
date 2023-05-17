@@ -3,13 +3,6 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-
-    username: {
-      type: String,
-      trim: true,
-      required: false,
-      unique: true
-    },
     name: {
       type: String,
       trim: true,
@@ -43,7 +36,7 @@ const userSchema = new Schema(
       required: true
     },
     phoneNumber: {
-      type: Number,
+      type: String,
       trim: true
     },
     car: {
