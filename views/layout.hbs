@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+   <title>{{appTitle}}</title>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +21,13 @@
 
 <body>
 
-   {{#unless isLogged}}
+   {{#unless loggedUser.user}}
    <div class="sidebar close">
       <a href="/">
          <div class="logo-details">
             <i class='bx bxs-car bx-tada' style='color:#080808'></i>
 
-            <span class="logo_name" style='color:#080808'>Iron Car</span>
+            <span class="logo_name" style='color:#080808'>{{appTitle}}</span>
          </div>
       </a>
       <ul class="nav-links">
@@ -65,13 +66,13 @@
    {{/unless}}
 
 
-   {{#if isLogged}}
+   {{#if loggedUser.user}}
    <div class="sidebar close">
       <a href="/">
          <div class="logo-details">
             <i class='bx bxs-car bx-tada' style='color:#080808'></i>
 
-            <span class="logo_name" style='color:#080808'>Iron Car</span>
+            <span class="logo_name" style='color:#080808'>{{appTitle}}</span>
          </div>
       </a>
       <ul class="nav-links">
@@ -91,7 +92,7 @@
 
 
          {{!-- CREATE TRIP --}}
-         {{#if isDriver}}
+         {{#if loggedUser.isDriverOrAdmin}}
          <li>
             <div class="iocn-link">
                <a href="/createTrip">
@@ -140,8 +141,8 @@
                      <img src="/images/profile.jpg" alt="profileImg">
                   </div>
                   <div class="name-job">
-                     <div class="profile_name">¡Bienvenido, {{ userName}}!</div>
-                     <div class="job">{{userRole}}</div>
+                     <div class="profile_name">¡Bienvenido, {{ loggedUser.name}}!</div>
+                     <div class="job">{{loggedUser.role}}</div>
                   </div>
                   <i class='bx bx-log-out'></i>
                </a>

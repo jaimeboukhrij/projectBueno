@@ -4,19 +4,15 @@ const { Schema, model } = require("mongoose");
 const reviewSchema = new Schema(
     {
         rating: {
-           type: Number
+            type: Number
         },
         text: {
             type: String
         },
         owner: {
-        ref: 'User',
-        type: Schema.Types.ObjectId,
-        },
-        addressee: {
-        ref: 'User',
-        type: Schema.Types.ObjectId,
-    },
+            ref: 'User',
+            type: Schema.Types.ObjectId,
+        }
     },
     {
         timestamps: true,

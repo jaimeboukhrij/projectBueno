@@ -6,11 +6,10 @@ const Review = require('../models/Review.model')
 
 router.get("/createReview", (req, res, next) => {
 
-    User
+  User
     .find()
     .then(users => res.render("reviews/create-review", { users }))
     .catch(err => next(err))
-
 })
 
 

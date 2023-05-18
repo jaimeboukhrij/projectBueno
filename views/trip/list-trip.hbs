@@ -1,40 +1,5 @@
 <div class="principal">
     <title>Lista de Viajes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .trip-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .trip-item {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-        }
-
-        .trip-item .label {
-            font-weight: bold;
-        }
-    </style>
-    </head>
 
     <body>
         <div class="container">
@@ -68,12 +33,7 @@
                         <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
                         <input type="submit" value="Ver Detalles" class="btn btn-primary">
                     </form>
-
-
                 </div>
-
-
-
                 ------------------------------------------------------------------------------------------------------------------------------
                 {{/each}}
                 </li>
