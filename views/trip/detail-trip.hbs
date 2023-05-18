@@ -23,13 +23,21 @@
             <h2>Pasajeros:</h2>
             <ul class="passenger-list">
                 {{#each trip.passengers}}
-                <li>
-                    <img src="{{imageUrl}}" alt="Passenger 1">
-                    <span> {{name}}</span>
-                </li>
+                <form action="/profile/{{id}}" method="POST">
+                    <button>
+                        <li>
+                            <img src="{{imageUrl}}" alt="Passenger 1">
+                            <span> {{name}}</span>
+                        </li>
+                    </button>
+                </form>
+
                 {{/each}}
             </ul>
         </div>
+
+
+
 
 
         <script src="/js/detail-trip.js">

@@ -5,20 +5,30 @@
         <div class="container">
             <h1>Lista de Viajes</h1>
             <ul class="trip-list">
+
                 {{#each formattedTrips}}
                 <div class="row">
                     <div class="col-6">
                         <li class="trip-item">
                             <p><span class="label">Origen:</span> {{origin.name}}</p>
+                            {{loggedUser.user.role}}
                             <p><span class="label">Destino:</span> {{destination.name}}</p>
                             <p><span class="label">Día de Salida:</span> 22 de mayo</p>
                             <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
                     </div>
-                    <div class="passengers col-6">
-                        <h6>Condcutor:</h6>
-                        <img src="{{owner.imageUrl}}" alt="Passenger 1">
-                        <span> {{owner.name}}</span>
-                    </div>
+                    <form action="/profile/{{owner.id}}" method="POST">
+                        <button>
+                            <div class="passengers col-6">
+                                <h6>Condcutor:</h6>
+                                <img src="{{owner.imageUrl}}" alt="Passenger 1">
+                                <span> {{owner.name}}</span>
+                            </div>
+                        </button>
+                    </form>
+
+                    <p>Modelo del coche: {{owner.car.model}}</p>
+
+                    {{#if../ loggedUser.user}}
                     {{#unless joined}}
                     <form
                         action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
@@ -27,18 +37,17 @@
                         <input type="submit" value="Apuntarme" class="btn btn-danger">
                     </form>
                     {{/unless}}
-                    <form
-                        action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/details"
-                        method="POST" style="display: inline">
-                        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
-                        <input type="submit" value="Ver Detalles" class="btn btn-primary">
-                    </form>
-                </div>
-                ------------------------------------------------------------------------------------------------------------------------------
-                {{/each}}
-                </li>
+                    {{/if}}
+
+                    <a
+                        href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a>
+
+
+                    {{/each}}
 
             </ul>
 
         </div>
 </div>
+
+<script src="../../js/bottoms.js" defer></script>

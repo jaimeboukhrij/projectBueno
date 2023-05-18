@@ -4,7 +4,7 @@ module.exports = app => {
     app.use("/", indexRoutes);
 
     const userRoutes = require("./user.routes");
-    app.use("/myProfile", userRoutes);
+    app.use("/", userRoutes);
 
     const tripRoutes = require("./trip.routes");
     app.use("/", tripRoutes);

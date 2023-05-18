@@ -6,7 +6,7 @@ const uploaderMiddleware = require('../middlewares/uploader.middleware')
 
 
 
-router.get("/", isLoggedIn, (req, res, next) => {
+router.get("/myProfile", isLoggedIn, (req, res, next) => {
 
     const { _id: idProfile } = req.session.currentUser
 
@@ -17,7 +17,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
 })
 
 
-router.get("/:id/edit", isLoggedIn, (req, res, next) => {
+router.get("/myProfile/:id/edit", isLoggedIn, (req, res, next) => {
 
     const { id } = req.params
 
@@ -28,7 +28,7 @@ router.get("/:id/edit", isLoggedIn, (req, res, next) => {
 })
 
 
-router.post("/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
+router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
 
     const { id } = req.params
     const { name, secondName, email, phoneNumber, aptitudes } = req.body
@@ -46,6 +46,20 @@ router.post("/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next)
             .catch(err => console.log(err))
     }
 })
+
+
+router.post("/profile/:id", isLoggedIn, (req, res, next) => {
+
+    const { _id: idProfile } = req.session.currentUser
+    User
+        .findById(idProfile)
+        .then(user => res.render("users/profiles", user))
+        .catch(err => next(err))
+
+
+})
+
+
 
 
 
