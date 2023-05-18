@@ -14,22 +14,37 @@ router.get("/createReview", (req, res, next) => {
 
 
 router.post("/createReview", (req, res, next) => {
+
   const { addressee, rating, text } = req.body;
   const { _id: owner } = req.session.currentUser;
 
   User.findById(addressee)
-    .then((user) => {
-      Review.create({ rating, text, owner, addressee })
-        .then((review) => {
-          console.log("review creada en bbdd", review);
-          // Resto del código
-        })
-        .catch((err) => next(err));
+    .then((addresseeUser) => {
+      const addresseeId = addresseeUser.id;
+      return Review.create({ rating, text, owner, addressee: addresseeId });
+    })
+    .then((review) => {
+      res.redirect("/")
     })
     .catch((err) => next(err));
 });
 
 
+
+router.get("/myReviews/:id", (req, res, next) => {
+  
+const {id} = req.params
+
+  Review
+  .find({addressee: id})
+  .populate("owner")
+  .then(review => res.render("reviews/my-reviews", {review} ))
+  .catch(err => next(err))
+  
+
+  //BUSCAR LAS REVIEWS DE ESE USUARIO
+
+})
 
 
 module.exports = router

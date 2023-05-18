@@ -20,11 +20,12 @@ router.post("/signUp", uploaderMiddleware.single('imageUrl'), (req, res, next) =
 
             User.create({ name, secondName, imageUrl, password: hashedPassword, role, dni, email, phoneNumber, aptitudes })
         })
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/logIn'))
         .catch(err => next(err))
 })
 
 router.get(("/logIn"), (req, res, next) => res.render("auth/logIn"))
+
 router.post(("/logIn"), (req, res, next) => {
     const { email, password } = req.body
     if (email === "" || password === "") {

@@ -1,7 +1,7 @@
 const formatJoiningTrips = (trips, user) => trips.map(elm => {
     return {
         ...elm._doc,
-        joined: elm._doc.passengers.includes(user._id)
+        joined: elm._doc.passengers.includes(user?._id)
     }
 })
 

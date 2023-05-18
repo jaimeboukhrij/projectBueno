@@ -12,6 +12,10 @@ const reviewSchema = new Schema(
         owner: {
             ref: 'User',
             type: Schema.Types.ObjectId,
+        },
+        addressee: {
+             ref: 'User',
+            type: Schema.Types.ObjectId,
         }
     },
     {
