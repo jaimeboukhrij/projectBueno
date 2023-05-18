@@ -27,16 +27,17 @@ router.get("/myProfile/:id/edit", isLoggedIn, (req, res, next) => {
 })
 router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, res, next) => {
     const { id } = req.params
-    const { username, name, secondName, email, phoneNumber, aptitudes } = req.body
+    const {  name, secondName, email, phoneNumber, aptitudes } = req.body
+    
     if (req.file) {
         const { path: imageUrl } = req.file
         User
-            .findByIdAndUpdate(id, { username, name, secondName, email, phoneNumber, aptitudes, imageUrl })
+            .findByIdAndUpdate(id, {  name, secondName, email, phoneNumber, aptitudes, imageUrl })
             .then(() => res.redirect("/"))
             .catch(err => console.log(err))
     } else {
         User
-            .findByIdAndUpdate(id, { username, name, secondName, email, phoneNumber, aptitudes })
+            .findByIdAndUpdate(id, {  name, secondName, email, phoneNumber, aptitudes })
             .then(() => res.redirect("/"))
             .catch(err => console.log(err))
     }
