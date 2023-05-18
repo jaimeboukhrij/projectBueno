@@ -12,6 +12,9 @@ module.exports = app => {
     const tripRoutes = require("./trip.routes");
     app.use("/", tripRoutes);
 
+    const reviewsRoutes = require("./reviews.routes");
+    app.use("/", reviewsRoutes);
+
     const authRoutes = require("./auth.routes");
     app.use("/", authRoutes);
 
