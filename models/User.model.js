@@ -43,6 +43,7 @@ const userSchema = new Schema(
       model: String,
       tuition: String,
     },
+    //QUITAR REVIEWS ESTO NO SE ESTA USANDO
     reviews: [{
       type: Schema.Types.ObjectId,
       ref: 'Review'

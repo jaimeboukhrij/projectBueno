@@ -26,6 +26,7 @@ router.post("/signUp", uploaderMiddleware.single('imageUrl'), (req, res, next) =
 })
 
 router.get(("/logIn"), (req, res, next) => res.render("auth/logIn"))
+
 router.post(("/logIn"), (req, res, next) => {
     const { email, password } = req.body
     if (email === "" || password === "") {
