@@ -4,6 +4,7 @@ const Trip = require("../models/Trip.model")
 const User = require('../models/User.model')
 const { formatJoiningTrips } = require('../utils/format-joining-trips')
 const { isLoggedIn } = require('../middlewares/route-guard')
+const { dateComparation } = require('../utils/format-joining-trips')
 
 
 router.get("/createTrip", (req, res, next) => {
@@ -83,31 +84,20 @@ router.post("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (r
 router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination/:id/details", isLoggedIn, (req, res, next) => {
 
   const { id } = req.params
-
+  const { _id: RevOwner } = req.session.currentUser
   Trip
     .findById(id)
     .populate({ path: "passengers" })
-    .then(trip => res.render("trip/detail-trip", { trip }))
-    .catch(err => next(err))
-})
-
-
-
-router.get("/myProfile/MyTrips", (req, res, next) => {
-
-  const { _id: user } = req.session.currentUser
-
-  Trip
-    .find({ "passengers": { $eq: user } })
-    .then(trips => {
-      if (trips.length > 0) {
-        res.render("profile/my-profile-trips", { trips })
-      } else {
-        res.send("no hay viaje")
-      }
+    .then(trip => {
+      time = dateComparation(trip.arrivalDate)
+      console.log("timeeee", time)
+      res.render("trip/detail-trip", { trip, time, RevOwner })
     })
     .catch(err => next(err))
 })
+
+
+
 
 
 

@@ -28,7 +28,7 @@
 
                     <p>Modelo del coche: {{owner.car.model}}</p>
 
-                    {{#if../ loggedUser.user}}
+                    {{#if../ loggedUser.isPassengerandIslogg}}
                     {{#unless joined}}
                     <form
                         action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
@@ -39,8 +39,6 @@
                     {{/unless}}
                     {{/if}}
 
-                    <a
-                        href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a>
 
 
                     {{/each}}
