@@ -93,21 +93,6 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination/:id/d
 
 
 
-router.get("/myProfile/MyTrips", (req, res, next) => {
-
-  const { _id: user } = req.session.currentUser
-
-  Trip
-    .find({ "passengers": { $eq: user } })
-    .then(trips => {
-      if (trips.length > 0) {
-        res.render("profile/my-profile-trips", { trips })
-      } else {
-        res.send("no hay viaje")
-      }
-    })
-    .catch(err => next(err))
-})
 
 
 

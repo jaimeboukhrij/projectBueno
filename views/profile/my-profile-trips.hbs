@@ -15,46 +15,28 @@
                         </li>
                         {{!-- MY REVIEWS TAB --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/myReviews/{{id}}">My reviews</a>
+                            <a class="nav-link" href="/myProfile/myReviews">My reviews</a>
                         </li>
                     </ul>
                 </div>
+                <div class="row mt-5 mb-5">
 
-                <div class="card-body">
-                    {{#each trips}}
-                    <div class="row">
-                        <div class="col-6">
-                            <li class="trip-item">
-                                <h4> {{destination.name}} </h4>
-                                <p><span class="label">Origen:</span> {{origin.name}}</p>
-                                <p><span class="label">Día de Salida:</span> 22 de mayo</p>
-                                <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
-                                <button><a
-                                        href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a></button>
+                    <div class="card-body">
+                        {{#each trips}}
+                        <div class="row">
+                            <div class="col-6">
+                                <li class="trip-item">
+                                    <h4> {{destination.name}} </h4>
+                                    <p><span class="label">Origen:</span> {{origin.name}}</p>
+                                    <p><span class="label">Día de Salida:</span> 22 de mayo</p>
+                                    <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
+                                    <button><a
+                                            href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a></button>
 
+                            </div>
+
+                            {{/each}}
                         </div>
-
-
-
-                        {{/each}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

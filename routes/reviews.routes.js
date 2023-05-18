@@ -31,20 +31,7 @@ router.post("/createReview", (req, res, next) => {
 
 
 
-router.get("/myReviews/:id", (req, res, next) => {
-  
-const {id} = req.params
 
-  Review
-  .find({addressee: id})
-  .populate("owner")
-  .then(review => res.render("reviews/my-reviews", {review} ))
-  .catch(err => next(err))
-  
-
-  //BUSCAR LAS REVIEWS DE ESE USUARIO
-
-})
 
 
 module.exports = router

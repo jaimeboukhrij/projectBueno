@@ -12,36 +12,38 @@
                         </li>
                         {{!-- MY TRIPS TAB --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My trips</a>
+                            <a class="nav-link" href="/myProfile/MyTrips">My trips</a>
                         </li>
                         {{!-- MY REVIEWS TAB --}}
                         <li class="nav-item">
-                            <a class="nav-link active" href="/myReviews/{{id}}">My reviews</a>
+                            <a class="nav-link active" href="/myProfile/myReviews">My reviews</a>
                         </li>
                     </ul>
                 </div>
 
 
                 {{!-- CONTENIDO DE: MY PROFILE / MY TRIPS / MY REVIEWS --}}
+                <div class="row mt-5 mb-5">
 
-                {{#each review}}
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">
-                                <img src="{{owner.imageUrl}}" alt="" class="img-width-50">
+                    {{#each review}}
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="{{owner.imageUrl}}" alt="" class="img-width-50">
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="card-text">{{text}}</p>
+                                </div>
                             </div>
 
-                            <div class="col-8">
-                                <p class="card-text">{{text}}</p>
-                            </div>
+
+
                         </div>
-
-
-
                     </div>
+                    {{/each}}
                 </div>
-                {{/each}}
 
 
 
