@@ -1,39 +1,43 @@
-<input type="text" placeholder="Enter a place" id="start" value={{trip.[0].origin.id}} hidden>
-<input type="text" placeholder="Enter a place" id="end" value={{trip.[0].destination.id}} hidden>
-<div class="container">
-    <h1>Detalles del Viaje</h1>
+<div class="principal">
 
-    <div class="map-container">
-        <div id="map"></div>
-        <div class="duration-overlay" id="duration"></div>
+    <input type="text" placeholder="Enter a place" id="start" value={{trip.origin.id}} hidden>
+    <input type="text" placeholder="Enter a place" id="end" value={{trip.destination.id}} hidden>
+    <div class="container">
+        <h1>Detalles del Viaje</h1>
+
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="duration-overlay" id="duration"></div>
+        </div>
+
+        <div class="trip-details">
+            <p><span class="label">Origen:</span> {{trip.origin.name}}</p>
+            <p><span class="label">Destino:</span> {{trip.destination.name}}</p>
+            <p><span class="label">Salida:</span> 22 de mayo, 10:00 AM</p>
+            <p><span class="label">Llegada:</span> 22 de mayo, 12:00 PM</p>
+            <p><span class="label">Precio:</span> {{trip.price}} €</p>
+
+        </div>
+
+        <div class="passengers">
+            <h2>Pasajeros:</h2>
+            <ul class="passenger-list">
+                {{#each trip.passengers}}
+                <li>
+                    <img src="{{imageUrl}}" alt="Passenger 1">
+                    <span> {{name}}</span>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+
+        <script src="/js/detail-trip.js">
+
+        </script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtc80oZ9lOnbwQODIRr0lG8MOlhxpXb94&callback=initMap"
+            async defer></script>
     </div>
 
-    <div class="trip-details">
-        {{#each trip}}
-        <p><span class="label">Origen:</span> {{origin.name}}</p>
-        <p><span class="label">Destino:</span> {{destination.name}}</p>
-        <p><span class="label">Salida:</span> 22 de mayo, 10:00 AM</p>
-        <p><span class="label">Llegada:</span> 22 de mayo, 12:00 PM</p>
-        <p><span class="label">Precio:</span> {{price}} €</p>
-
-    </div>
-
-    <div class="passengers">
-        <h2>Pasajeros:</h2>
-        <ul class="passenger-list">
-            {{#each passengers}}
-            <li>
-                <img src="{{imageUrl}}" alt="Passenger 1">
-                <span> {{name}}</span>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-    {{/each}}
-
-    <script src="/js/list-trip.js">
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtc80oZ9lOnbwQODIRr0lG8MOlhxpXb94&callback=initMap"
-        async defer></script>
 </div>

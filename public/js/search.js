@@ -24,7 +24,6 @@ function initAutocomplete() {
 
 function onPlaceChanged() {
     var place = origin.getPlace();
-    console.log(place)
     if (!place.geometry) {
         // User did not select a prediction; reset the input field7
         document.getElementById('autocomplete').placeholder =

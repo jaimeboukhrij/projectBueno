@@ -40,7 +40,7 @@
         <div class="container">
             <h1>Lista de Viajes</h1>
             <ul class="trip-list">
-                {{#each trip}}
+                {{#each formattedTrips}}
                 <div class="row">
                     <div class="col-6">
                         <li class="trip-item">
@@ -54,12 +54,22 @@
                         <img src="{{owner.imageUrl}}" alt="Passenger 1">
                         <span> {{owner.name}}</span>
                     </div>
+                    {{#unless joined}}
                     <form
                         action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
                         method="POST" style="display: inline">
                         <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
                         <input type="submit" value="Apuntarme" class="btn btn-danger">
                     </form>
+                    {{/unless}}
+                    <form
+                        action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/details"
+                        method="POST" style="display: inline">
+                        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
+                        <input type="submit" value="Ver Detalles" class="btn btn-primary">
+                    </form>
+
+
                 </div>
 
 

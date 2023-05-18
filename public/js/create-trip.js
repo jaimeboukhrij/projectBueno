@@ -26,9 +26,7 @@ function initAutocomplete() {
 
 function onPlaceChanged() {
     var place = origin.getPlace();
-    console.log(document.getElementById('originId'))
 
-    console.log(place)
     if (!place.geometry) {
         document.getElementById('autocomplete').placeholder =
             'Enter a place';
@@ -38,8 +36,6 @@ function onPlaceChanged() {
 }
 function PlaceChanged() {
     var place = destination.getPlace();
-    console.log(place.name)
-
     if (!place.geometry) {
         document.getElementById('autocomplete').placeholder =
             'Enter a place';

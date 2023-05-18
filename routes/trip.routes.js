@@ -28,16 +28,21 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (re
   Trip
     .find({ $and: [{ "origin.id": { $eq: idOrigin } }, { "destination.id": { $eq: idDestination } }, { "departureDay": { $eq: date } }] })
     .populate({
-      path: "passengers"
-
-    })
-    .populate({
       path: "owner"
 
     })
-    .then(trip => {
-      console.log(trip)
-      if (trip.length > 0) { res.render("trip/list-trip", { trip }) }
+    .then(trips => {
+
+      const formattedTrips = trips.map(elm => {
+
+        elmCopy = { ...elm._doc, joined: false }
+
+        if (elmCopy.passengers.includes(req.session.currentUser._id)) { elmCopy.joined = true }
+        else { elmCopy.joined = false }
+        console.log(elmCopy.joined)
+        return elmCopy
+      })
+      if (trips.length > 0) { res.render("trip/list-trip", { formattedTrips }) }
       else { res.send("no hay viaje") }
     })
     .catch(err => next(err))
@@ -57,6 +62,21 @@ router.post("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (r
     .catch(err => next(err))
 })
 
+
+router.post("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination/details", (req, res, next) => {
+  const { idTrip } = req.body
+  const { _id: newPass } = req.session.currentUser
+  Trip
+    .findById(idTrip)
+    .populate({
+      path: "passengers"
+
+    })
+    .then(trip => {
+      res.render("trip/detail-trip", { trip })
+    })
+    .catch(err => next(err))
+})
 
 
 

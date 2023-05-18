@@ -6,7 +6,7 @@ require("./db");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-const { isLogged, isPassenger, isDriver, userName, userRole } = require("./middlewares/loggedRoles.middleware")
+const { isLogged, isPassenger, isDriver, userName, userRole, isOnTrip } = require("./middlewares/loggedRoles.middleware")
 
 const projectName = "Iron Car";
 
@@ -20,6 +20,7 @@ app.use(isPassenger)
 app.use(isDriver)
 app.use(userName)
 app.use(userRole)
+app.use(isOnTrip)
 
 require("./routes")(app)
 require("./error-handling")(app);

@@ -4,7 +4,77 @@ body {
    font-family: 'Poppins', sans-serif;
    font-family: 'Quicksand', sans-serif;
    font-family: 'Roboto', sans-serif;
-   background: #e0e0e0;
+   background: #DCD6F7;
+}
+
+.hero {
+   background: linear-gradient(to bottom right, #FF6B6B, #3a1c71);
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   color: #fff;
+}
+
+.hero h1 {
+   font-size: 48px;
+   margin-bottom: 20px;
+}
+
+.hero p {
+   font-size: 18px;
+   margin-bottom: 40px;
+}
+
+.search-form {
+   width: 637px;
+   padding: 40px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-radius: 10px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+   margin-top: 40px;
+   height: 641px;
+}
+
+.search-form h2 {
+   text-align: center;
+   font-size: 24px;
+   margin-bottom: 20px;
+   color: #333;
+}
+
+.form-group {
+   margin-bottom: 20px;
+}
+
+.form-group label {
+   display: block;
+   margin-bottom: 5px;
+   color: #666;
+}
+
+.form-group input {
+   width: 357px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+#origin,
+#destination {
+   width: 300px;
+}
+
+.form-group button {
+   width: 100%;
+   padding: 10px;
+   background-color: #3a1c71;
+   border: none;
+   color: #fff;
+   border-radius: 5px;
+   cursor: pointer;
 }
 
 .principal {
@@ -140,7 +210,7 @@ body {
    left: 0;
    height: 100%;
    width: 260px;
-   background: #efeff3;
+   background: #A6B1E1;
    z-index: 100;
    transition: all 0.5s ease;
 }
