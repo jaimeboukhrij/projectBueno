@@ -1,116 +1,117 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h1>Create trip</h1>
-            <hr>
-            <form action="/createTrip" method="POST">
+<div class="principal">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1>Create trip</h1>
+                <hr>
+                <form action="/createTrip" method="POST">
 
-                <div class="mb-3">
-                    <label for="origin" class="form-label">Origin:</label>
-                    <input type="text" class="form-control" id="origin" name="origin">
-                    <input type="text" id="originId" name="originId" hidden>
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="destination" class="form-label">Destination</label>
-                    <input type="text" class="form-control" id="destination" name="destination">
-                    <input type="text" id="destinationId" name="destinationId" hidden>
-                </div>
-
-
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="departureDate">departureDate</label>
-                        <input type="datetime-local" class="form-control" id="date" name="departureDate">
+                    <div class="mb-3">
+                        <label for="origin" class="form-label">Origin:</label>
+                        <input type="text" class="form-control" id="origin" name="origin">
+                        <input type="text" id="originId" name="originId" hidden>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="arrivalDate">arrivalDate</label>
-                        <input type="datetime-local" class="form-control" id="date" name="arrivalDate">
+
+                    <div class="mb-3">
+                        <label for="destination" class="form-label">Destination</label>
+                        <input type="text" class="form-control" id="destination" name="destination">
+                        <input type="text" id="destinationId" name="destinationId" hidden>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price:</label>
-                    <input type="text" class="form-control" id="price" name="price">
-                </div>
 
-                <div class="mb-3">
-                    <label for="carModel" class="form-label">Car model</label>
-                    <select form-select class="form-control" id="carModel" name="carModel">
-                        <option value="">Selecciona tu coche</option>
-                        <option value="Abarth">Abarth</option>
-                        <option value="Alfa Romeo">Alfa Romeo</option>
-                        <option value="Aston Martin">Aston Martin</option>
-                        <option value="Audi">Audi</option>
-                        <option value="Bentley">Bentley</option>
-                        <option value="BMW">BMW</option>
-                        <option value="Cadillac">Cadillac</option>
-                        <option value="Caterham">Caterham</option>
-                        <option value="Chevrolet">Chevrolet</option>
-                        <option value="Citroen">Citroen</option>
-                        <option value="Dacia">Dacia</option>
-                        <option value="Ferrari">Ferrari</option>
-                        <option value="Fiat">Fiat</option>
-                        <option value="Ford">Ford</option>
-                        <option value="Honda">Honda</option>
-                        <option value="Infiniti">Infiniti</option>
-                        <option value="Isuzu">Isuzu</option>
-                        <option value="Iveco">Iveco</option>
-                        <option value="Jaguar">Jaguar</option>
-                        <option value="Jeep">Jeep</option>
-                        <option value="Kia">Kia</option>
-                        <option value="KTM">KTM</option>
-                        <option value="Lada">Lada</option>
-                        <option value="Lamborghini">Lamborghini</option>
-                        <option value="Lancia">Lancia</option>
-                        <option value="Land Rover">Land Rover</option>
-                        <option value="Lexus">Lexus</option>
-                        <option value="Lotus">Lotus</option>
-                        <option value="Maserati">Maserati</option>
-                        <option value="Mazda">Mazda</option>
-                        <option value="Mercedes-Benz">Mercedes-Benz</option>
-                        <option value="Mini">Mini</option>
-                        <option value="Mitsubishi">Mitsubishi</option>
-                        <option value="Morgan">Morgan</option>
-                        <option value="Nissan">Nissan</option>
-                        <option value="Opel">Opel</option>
-                        <option value="Peugeot">Peugeot</option>
-                        <option value="Piaggio">Piaggio</option>
-                        <option value="Porsche">Porsche</option>
-                        <option value="Renault">Renault</option>
-                        <option value="Rolls-Royce">Rolls-Royce</option>
-                        <option value="Seat">Seat</option>
-                        <option value="Skoda">Skoda</option>
-                        <option value="Smart">Smart</option>
-                        <option value="SsangYong">SsangYong</option>
-                        <option value="Subaru">Subaru</option>
-                        <option value="Suzuki">Suzuki</option>
-                        <option value="Tata">Tata</option>
-                        <option value="Tesla">Tesla</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Volkswagen">Volkswagen</option>
-                    </select>
-                </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="departureDate">departureDate</label>
+                            <input type="datetime-local" class="form-control" id="date" name="departureDate">
+                        </div>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="carTuition" class="form-label">Car Tuition</label>
-                    <input type="text" class="form-control" id="carTuition" name="carTuition">
-                </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="arrivalDate">arrivalDate</label>
+                            <input type="datetime-local" class="form-control" id="date" name="arrivalDate">
+                        </div>
+                    </div>
 
-                <div class="d-grid">
-                    <button type="submit" onclick="miFunc()" class="btn btn-dark">Create trip</button>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="text" class="form-control" id="price" name="price">
+                    </div>
 
-                </div>
+                    <div class="mb-3">
+                        <label for="carModel" class="form-label">Car model</label>
+                        <select form-select class="form-control" id="carModel" name="carModel">
+                            <option value="">Selecciona tu coche</option>
+                            <option value="Abarth">Abarth</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Bentley">Bentley</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Caterham">Caterham</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Citroen">Citroen</option>
+                            <option value="Dacia">Dacia</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Infiniti">Infiniti</option>
+                            <option value="Isuzu">Isuzu</option>
+                            <option value="Iveco">Iveco</option>
+                            <option value="Jaguar">Jaguar</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Kia">Kia</option>
+                            <option value="KTM">KTM</option>
+                            <option value="Lada">Lada</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Lancia">Lancia</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Lotus">Lotus</option>
+                            <option value="Maserati">Maserati</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Mini">Mini</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Morgan">Morgan</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Opel">Opel</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Piaggio">Piaggio</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Rolls-Royce">Rolls-Royce</option>
+                            <option value="Seat">Seat</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="Smart">Smart</option>
+                            <option value="SsangYong">SsangYong</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Tata">Tata</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                        </select>
+                    </div>
 
-            </form>
+                    <div class="mb-3">
+                        <label for="carTuition" class="form-label">Car Tuition</label>
+                        <input type="text" class="form-control" id="carTuition" name="carTuition">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" onclick="miFunc()" class="btn btn-dark">Create trip</button>
+
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 
 
 <script src="js/create-trip.js">

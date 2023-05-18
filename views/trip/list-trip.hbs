@@ -2,24 +2,25 @@
     <title>Lista de Viajes</title>
 
     <body>
+
         <div class="container">
+
             <h1>Lista de Viajes</h1>
             <ul class="trip-list">
-
                 {{#each formattedTrips}}
                 <div class="row">
                     <div class="col-6">
                         <li class="trip-item">
-                            <p><span class="label">Origen:</span> {{origin.name}}</p>
+                            <p><span class="label">Origin:</span> {{origin.name}}</p>
                             {{loggedUser.user.role}}
-                            <p><span class="label">Destino:</span> {{destination.name}}</p>
+                            <p><span class="label">Destination:</span> {{destination.name}}</p>
                             <p><span class="label">Día de Salida:</span> 22 de mayo</p>
                             <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
                     </div>
                     <form action="/profile/{{owner.id}}" method="POST">
                         <button>
                             <div class="passengers col-6">
-                                <h6>Condcutor:</h6>
+                                <h6>Driver:</h6>
                                 <img src="{{owner.imageUrl}}" alt="Passenger 1">
                                 <span> {{owner.name}}</span>
                             </div>
