@@ -546,7 +546,6 @@ h1 {
    max-width: 800px;
    margin: 0 auto;
    padding: 20px;
-   background-color: #f2f2f2;
    border-radius: 5px;
 }
 
@@ -621,4 +620,13 @@ h1 {
 
 .passenger-list li span {
    font-weight: bold;
+}
+
+.prueba{
+   border: 0px;
+}
+
+.custom-btn-color {
+  background-color: #424874;
+color: white
 }

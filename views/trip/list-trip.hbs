@@ -1,51 +1,63 @@
 <div class="principal">
-    <title>Lista de Viajes</title>
 
     <body>
-
         <div class="container">
-
-            <h1>Lista de Viajes</h1>
-            <ul class="trip-list">
+            <h2>Available trips</h2>
+            <div class="row">
                 {{#each formattedTrips}}
-                <div class="row">
-                    <div class="col-6">
-                        <li class="trip-item">
-                            <p><span class="label">Origin:</span> {{origin.name}}</p>
-                            {{loggedUser.user.role}}
-                            <p><span class="label">Destination:</span> {{destination.name}}</p>
-                            <p><span class="label">Día de Salida:</span> 22 de mayo</p>
-                            <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
+                <div class="col-6 ">
+                    <div class="card ">
+
+                        <form action="/profile/{{owner.id}}" method="POST">
+                            <button class="rounded-circle" style="border: none; background-color: transparent;">
+                                <div class="passengers col-6">
+                                    <img src="{{owner.imageUrl}}" alt="Passenger 1" class="rounded-circle"
+                                        style="width: 100%; height: 100%;">
+                                </div>
+                            </button>
+                        </form>
+
+                        <div class="card-body">
+                            <span> {{owner.name}}</span>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p class="card-text"><strong>Origin</strong> {{origin.name}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p class="card-text"> <strong>Destination:</strong> {{destination.name}}</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><span class="label"> <strong>Día de Salida:</strong> </span> 22 de mayo</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p><span class="label"> <strong>Hora de Salida:</strong> </span> 10:00 AM</p>
+                            </li>
+                            <li class="list-group-item">
+                                <p>Car Model: {{owner.car.model}}</p>
+                            </li>
+
+                        </ul>
+                        <div class="card-body">
+
+                            {{#if../ loggedUser.isPassengerandIslogg}}
+                            {{#unless joined}}
+                            <form
+                                action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
+                                method="POST" style="display: inline">
+                                <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
+
+                                <input type="submit" value="Apuntarme" class="btn custom-btn-color">
+                            </form>
+                            {{/unless}}
+                            {{/if}}
+
+                        </div>
                     </div>
-                    <form action="/profile/{{owner.id}}" method="POST">
-                        <button>
-                            <div class="passengers col-6">
-                                <h6>Driver:</h6>
-                                <img src="{{owner.imageUrl}}" alt="Passenger 1">
-                                <span> {{owner.name}}</span>
-                            </div>
-                        </button>
-                    </form>
 
-                    <p>Modelo del coche: {{owner.car.model}}</p>
-
-                    {{#if../ loggedUser.isPassengerandIslogg}}
-                    {{#unless joined}}
-                    <form
-                        action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
-                        method="POST" style="display: inline">
-                        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
-                        <input type="submit" value="Apuntarme" class="btn btn-danger">
-                    </form>
-                    {{/unless}}
-                    {{/if}}
-
-
-
-                    {{/each}}
-
-            </ul>
-
+                </div>
+                {{/each}}
+            </div>
         </div>
 </div>
 

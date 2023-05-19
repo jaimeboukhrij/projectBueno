@@ -53,12 +53,11 @@ router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, 
 
 router.post("/profile/:id", isLoggedIn, (req, res, next) => {
 
-    const { _id: idProfile } = req.session.currentUser
+    const { id: idProfile } = req.params
     User
         .findById(idProfile)
         .then(user => res.render("users/profiles", user))
         .catch(err => next(err))
-
 
 })
 

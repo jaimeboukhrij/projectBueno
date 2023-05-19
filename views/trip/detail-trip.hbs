@@ -3,40 +3,55 @@
     <input type="text" placeholder="Enter a place" id="start" value={{trip.origin.id}} hidden>
     <input type="text" placeholder="Enter a place" id="end" value={{trip.destination.id}} hidden>
     <div class="container">
-        <h1>Detalles del Viaje</h1>
+        <h1>Deatails trip</h1>
 
-        <div class="map-container">
-            <div id="map"></div>
-            <div class="duration-overlay" id="duration"></div>
-        </div>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-12">
 
-        <div class="trip-details">
-            <p><span class="label">Origen:</span> {{trip.origin.name}}</p>
-            <p><span class="label">Destino:</span> {{trip.destination.name}}</p>
-            <p><span class="label">Salida:</span> 22 de mayo, 10:00 AM</p>
-            <p><span class="label">Llegada:</span> 22 de mayo, 12:00 PM</p>
-            <p><span class="label">Precio:</span> {{trip.price}} €</p>
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="duration-overlay" id="duration"></div>
+                </div>
+            </div>
+            <div class="row mt-3 justify-content-around">
 
-        </div>
+                <div class="col-5 card p-3">
 
-        <div class="passengers">
-            <h2>Pasajeros:</h2>
-            <ul class="passenger-list">
-                {{#each trip.passengers}}
-                <form action="/profile/{{id}}" method="POST">
-                    <button>
-                        <li>
-                            <img src="{{imageUrl}}" alt="Passenger 1">
-                            <span> {{name}}</span>
-                        </li>
-                    </button>
-                </form>
-                {{#if../ time}}
+                    <div class="trip-details d-flex flex-column justify-content-between h-100">
+                        <p><span class="label">Origen:</span> {{trip.origin.name}}</p>
+                        <p><span class="label">Destino:</span> {{trip.destination.name}}</p>
+                        <p><span class="label">Salida:</span> 22 de mayo, 10:00 AM</p>
+                        <p><span class="label">Llegada:</span> 22 de mayo, 12:00 PM</p>
+                        <p><span class="label">Precio:</span> {{trip.price}} €</p>
 
-                <a href="/createReview/{{id}}">Write Review</a>
-                {{/if}}
-                {{/each}}
-            </ul>
+                    </div>
+                </div>
+
+                <div class="col-5 card p-3">
+
+                    <div class="passengers">
+                        <h2>Passengers:</h2>
+                        <ul class="passenger-list d-flex flex-column">
+                            {{#each trip.passengers}}
+
+                            <form class="w-100 card" action="/profile/{{id}}" method="POST">
+                                <button class="btn btn-ligh">
+                                    <li class="w-100">
+                                        <img class="w-50" src="{{imageUrl}}" alt="Passenger 1">
+                                        <span class="w-100"> {{name}}</span>
+                                    </li>
+                                </button>
+                            </form>
+
+                            {{/each}}
+                            {{#if time}}
+                            <a class="btn btn-secondary" href="/createReview/{{id}}">Write Review</a>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 

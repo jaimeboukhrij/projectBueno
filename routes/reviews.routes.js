@@ -4,7 +4,7 @@ const User = require('../models/User.model')
 const Review = require('../models/Review.model')
 
 
-router.get("/createReview/:id", (req, res, next) => {
+router.get("/createReview", (req, res, next) => {
 
   User
     .find()
