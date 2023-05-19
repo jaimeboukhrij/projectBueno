@@ -57,7 +57,6 @@ router.get("/profile/:id", isLoggedIn, (req, res, next) => {
         .then(user => res.render("users/profiles", user))
         .catch(err => next(err))
 
-
 })
 router.post("/profile/:id", isLoggedIn, (req, res, next) => {
 
