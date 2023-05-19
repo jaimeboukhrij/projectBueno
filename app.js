@@ -12,6 +12,8 @@ require('./config/session.config')(app)
 const { updateUserInfo } = require("./middlewares/loggedRoles.middleware")
 app.use(updateUserInfo)
 
+
+
 require("./routes")(app)
 require("./error-handling")(app)
 

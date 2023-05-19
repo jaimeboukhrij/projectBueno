@@ -49,11 +49,9 @@ router.post("/myProfile/:id/edit", uploaderMiddleware.single('imageUrl'), (req, 
             .catch(err => console.log(err))
     }
 })
+router.get("/profile/:id", isLoggedIn, (req, res, next) => {
 
-
-router.post("/profile/:id", isLoggedIn, (req, res, next) => {
-
-    const { _id: idProfile } = req.session.currentUser
+    const { id: idProfile } = req.params
     User
         .findById(idProfile)
         .then(user => res.render("users/profiles", user))
@@ -61,6 +59,37 @@ router.post("/profile/:id", isLoggedIn, (req, res, next) => {
 
 
 })
+router.post("/profile/:id", isLoggedIn, (req, res, next) => {
+
+    const { id: idProfile } = req.params
+    User
+        .findById(idProfile)
+        .then(user => res.render("users/profiles", user))
+        .catch(err => next(err))
+
+
+})
+
+router.get("/profile/Reviews/:id", isLoggedIn, (req, res, next) => {
+    const { id: idDest } = req.params
+    Review
+        .find({ "addressee": { $eq: idDest } })
+        .populate("owner")
+        .populate("addressee")
+        .then(reviews => {
+            console.log(reviews)
+            res.render("users/profiles-reviews", { reviews })
+        })
+        .catch(err => next(err))
+})
+
+
+
+
+
+
+
+
 
 router.get("/myProfile/MyTrips", (req, res, next) => {
 
@@ -79,15 +108,18 @@ router.get("/myProfile/MyTrips", (req, res, next) => {
 })
 
 router.get("/myProfile/myReviews/", (req, res, next) => {
-    const { _id: owner } = req.session.currentUser
 
 
+    const { id: idDest } = req.session.currentUser
     Review
-        .find({ addressee: owner })
+        .find({ "addressee": { $eq: idDest } })
         .populate("owner")
-        .then(review => res.render("profile/my-reviews", { review }))
+        .populate("addressee")
+        .then(reviews => {
+            console.log(reviews)
+            res.render("profile/my-reviews", { reviews })
+        })
         .catch(err => next(err))
-
 
     //BUSCAR LAS REVIEWS DE ESE USUARIO
 

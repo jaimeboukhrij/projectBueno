@@ -5,6 +5,7 @@ const User = require('../models/User.model')
 const { formatJoiningTrips } = require('../utils/format-joining-trips')
 const { isLoggedIn } = require('../middlewares/route-guard')
 const { dateComparation } = require('../utils/format-joining-trips')
+const { onTrip } = require('../utils/format-joining-trips')
 
 
 router.get("/createTrip", (req, res, next) => {
@@ -65,7 +66,7 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (re
 
 
 router.post("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (req, res, next) => {
-  console.log(req.body)
+
   const { date, origin, destination, idOrigin, idDestination } = req.params
   const { idTrip } = req.body
   const { _id: newPassenger } = req.session.currentUser
@@ -90,8 +91,10 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination/:id/d
     .populate({ path: "passengers" })
     .then(trip => {
       time = dateComparation(trip.arrivalDate)
-      console.log("timeeee", time)
-      res.render("trip/detail-trip", { trip, time, RevOwner })
+      let isOntrip = onTrip(RevOwner, trip)
+      console.log("enpoint", isOntrip)
+
+      res.render("trip/detail-trip", { trip, time, RevOwner, isOntrip })
     })
     .catch(err => next(err))
 })

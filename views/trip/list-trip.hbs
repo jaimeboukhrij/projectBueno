@@ -39,10 +39,17 @@
                     </form>
                     {{/unless}}
                     {{/if}}
+                    {{#if../ loggedUser.isPassengerandIslogg}}
+                    <button><a
+                            href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a></button>
+
+                    {{/if}}
+
+                </div>
 
 
 
-                    {{/each}}
+                {{/each}}
 
             </ul>
 

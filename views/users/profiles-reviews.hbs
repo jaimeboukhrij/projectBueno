@@ -8,12 +8,9 @@
 
                         {{!-- MY PROFILE TAB --}}
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="true" href="/myProfile">My profile</a>
+                            <a class="nav-link" aria-current="true" href="/Profile/{{id}}">My profile</a>
                         </li>
-                        {{!-- MY TRIPS TAB --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/myProfile/MyTrips">My trips</a>
-                        </li>
+
                         {{!-- MY REVIEWS TAB --}}
                         <li class="nav-item">
                             <a class="nav-link active" href="/myProfile/myReviews/">My reviews</a>
@@ -24,10 +21,8 @@
 
                 {{!-- CONTENIDO DE: MY PROFILE / MY TRIPS / MY REVIEWS --}}
                 <div class="row mt-5 mb-5">
-                    holaaaa
-                    {{reviews}}
-                    {{#each reviews}}
 
+                    {{#each reviews}}
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -36,12 +31,10 @@
                                 </div>
 
                                 <div class="col-8">
+                                    <p class="card-text">rating: {{rating}}</p>
                                     <p class="card-text">{{text}}</p>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     {{/each}}

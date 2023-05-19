@@ -15,7 +15,18 @@ const dateComparation = function compararFechaActualCon(fecha) {
     }
 }
 
+const onTrip = function isOntrip(idUser, trip) {
+    let isOnTrip = false
+    trip.passengers.forEach(passenger => {
+        console.log(passenger.id.toString(), idUser.toString())
+        if (passenger.id.toString() === idUser.toString()) return isOnTrip = true
+
+    });
+
+    return isOnTrip
+}
 
 
 
-module.exports = { formatJoiningTrips, dateComparation }
+
+module.exports = { formatJoiningTrips, dateComparation, onTrip }

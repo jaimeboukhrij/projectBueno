@@ -31,11 +31,13 @@
                         </li>
                     </button>
                 </form>
-                {{#if../ time}}
 
-                <a href="/createReview/{{id}}">Write Review</a>
-                {{/if}}
                 {{/each}}
+                {{#if time}}
+                {{#if isOntrip}}
+                <a href="/createReview/{{trip.id}}">Write Review</a>
+                {{/if}}
+                {{/if}}
             </ul>
         </div>
 

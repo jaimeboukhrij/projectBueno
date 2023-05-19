@@ -2,21 +2,44 @@
 
 
 <div class="principal">
+    {{#each trip}}
+    {{owner.id}}
+    {{/each}}
+
 
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 90vh;">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/createReview" method="POST">
+                        <form action="/createReview/{{idTrip}}" method="POST">
                             <div class="row mb-4">
                                 <div class="col-6">
                                     <select class="form-select" aria-label="Default select example" name="addressee">
                                         <option selected>Choose</option>
-
-                                        {{#each users}}
-                                        <option value={{_id}}>{{name}}</option>
+                                        {{#if loggedUser.isPassenger}}
+                                        {{#each trip}}
+                                        {{#each passengers}}
+                                        <option value="{{id}}">{{name}}</option>
                                         {{/each}}
+                                        {{/each}}
+                                        {{#unless loggedUser.isPassenger}}
+                                        {{#each trip}}
+                                        {{#each owner}}
+
+                                        <option value="{{id}}">{{name}}</option>
+                                        {{/each}}
+                                        {{/each}}
+                                        {{/unless}}
+                                        {{/if}}
+
+                                        {{#each trip}}
+                                        {{owner}}
+                                        {{/each}}
+
+
+
+
 
                                     </select>
                                 </div>
