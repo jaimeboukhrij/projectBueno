@@ -69,19 +69,6 @@ router.post("/profile/:id", isLoggedIn, (req, res, next) => {
 
 })
 
-router.get("/profile/Reviews/:id", isLoggedIn, (req, res, next) => {
-    const { id: idDest } = req.params
-    Review
-        .find({ "addressee": { $eq: idDest } })
-        .populate("owner")
-        .populate("addressee")
-        .then(reviews => {
-            console.log(reviews)
-            res.render("users/profiles-reviews", { reviews })
-        })
-        .catch(err => next(err))
-})
-
 
 
 
@@ -109,13 +96,14 @@ router.get("/myProfile/MyTrips", (req, res, next) => {
 router.get("/myProfile/myReviews/", (req, res, next) => {
 
 
-    const { id: idDest } = req.session.currentUser
+    const { _id } = req.session.currentUser
+    console.log(_id)
     Review
-        .find({ "addressee": { $eq: idDest } })
+        .find({ "addressee": { $eq: _id } })
         .populate("owner")
         .populate("addressee")
         .then(reviews => {
-            console.log(reviews)
+            console.log("----------------", reviews)
             res.render("profile/my-reviews", { reviews })
         })
         .catch(err => next(err))
@@ -123,6 +111,21 @@ router.get("/myProfile/myReviews/", (req, res, next) => {
     //BUSCAR LAS REVIEWS DE ESE USUARIO
 
 })
+
+
+router.get("/profile/Reviews/:id", isLoggedIn, (req, res, next) => {
+    const { id: idDest } = req.params
+    Review
+        .find({ "addressee": { $eq: idDest } })
+        .populate("owner")
+        .populate("addressee")
+        .then(reviews => {
+            res.render("users/profiles-reviews", { reviews })
+        })
+        .catch(err => next(err))
+})
+
+
 
 
 

@@ -3,7 +3,7 @@
     <input type="text" placeholder="Enter a place" id="start" value={{trip.origin.id}} hidden>
     <input type="text" placeholder="Enter a place" id="end" value={{trip.destination.id}} hidden>
     <div class="container">
-        <h1>Deatails trip</h1>
+        <h1>Details trip</h1>
 
         <div class="row mt-5 justify-content-center">
             <div class="col-12">
@@ -16,13 +16,17 @@
             <div class="row mt-3 justify-content-around">
 
                 <div class="col-5 card p-3">
+                    <input type="text" value="{{trip.departureDate}}" id="rating" hidden>
+
 
                     <div class="trip-details d-flex flex-column justify-content-between h-100">
-                        <p><span class="label">Origen:</span> {{trip.origin.name}}</p>
-                        <p><span class="label">Destino:</span> {{trip.destination.name}}</p>
-                        <p><span class="label">Salida:</span> 22 de mayo, 10:00 AM</p>
-                        <p><span class="label">Llegada:</span> 22 de mayo, 12:00 PM</p>
-                        <p><span class="label">Precio:</span> {{trip.price}} €</p>
+                        <p><span class="label">Origin:</span> {{trip.origin.name}}</p>
+                        <p><span class="label">Destination:</span> {{trip.destination.name}}</p>
+                        <p><span class="label">Departure:</span>
+                        <p id="resultadoRating"></p>
+                        <p id="hour"></p>
+                        </p>
+                        <p><span class="label">Price:</span> {{trip.price}} €</p>
 
                     </div>
                 </div>
@@ -45,7 +49,7 @@
 
                             {{/each}}
                             {{#if time}}
-                            <a class="btn btn-secondary" href="/createReview/{{id}}">Write Review</a>
+                            <a href="/createReview/{{trip.id}}">Write Review</a>
                             {{/if}}
                         </ul>
                     </div>
@@ -60,6 +64,9 @@
 
         <script src="/js/detail-trip.js">
 
+        </script>
+
+        <script src="/../js/bottoms.js">
         </script>
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtc80oZ9lOnbwQODIRr0lG8MOlhxpXb94&callback=initMap"

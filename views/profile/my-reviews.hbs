@@ -21,13 +21,10 @@
                     </ul>
                 </div>
 
-
                 {{!-- CONTENIDO DE: MY PROFILE / MY TRIPS / MY REVIEWS --}}
                 <div class="row mt-5 mb-5">
-                    holaaaa
-                    {{reviews}}
-                    {{#each reviews}}
 
+                    {{#each reviews}}
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -36,20 +33,26 @@
                                 </div>
 
                                 <div class="col-8">
+                                    <p id="resultadoRating"></p>
+                                    <input type="text" value="{{rating}}" id="rating" hidden>
                                     <p class="card-text">{{text}}</p>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     {{/each}}
                 </div>
 
-
-
             </div>
         </div>
     </div>
 </div>
+
+
+
+<script src="../../js/ratin.js">
+
+</script>
+</body>
+
+</html>

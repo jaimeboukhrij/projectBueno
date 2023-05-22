@@ -24,6 +24,7 @@
     "sonner": "^0.3.5"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.2.5",
     "nodemon": "^2.0.22"
   }
 }

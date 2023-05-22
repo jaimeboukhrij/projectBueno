@@ -23,21 +23,17 @@
 
                     <div class="card-body">
                         {{#each trips}}
+                        <input type="text" value="{{arrivalDate}}" id="rating" hidden>
                         <div class="row">
                             <div class="col-6">
                                 <li class="trip-item">
                                     <h4> {{destination.name}} </h4>
-                                    <p><span class="label">Origen:</span> 22 de mayo</p>
-                                    <p><span class="label">Día de Salida:</span> 22 de mayo</p>
-                                    <p><span class="label">Hora de Salida:</span> 10:00 AM</p>
+                                    <p><span class="label">Origen:</span> {{origin.name}}</p>
                                     <button><a
                                             href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a></button>
 
 
-
                             </div>
-
-
 
                             {{/each}}
 
@@ -46,3 +42,7 @@
                     </div>
                 </div>
             </div>
+
+
+            <script src="/../js/bottoms.js">
+            </script>

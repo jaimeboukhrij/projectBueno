@@ -4,9 +4,10 @@
         <div class="container">
             <h2>Available trips</h2>
             <div class="row">
-                {{#each formattedTrips}}
-                <div class="col-6 ">
-                    <div class="card ">
+                <div class="col-12">
+                    {{#each formattedTrips}}
+
+                    <div class="card " style="margin-bottom: 40px;">
 
                         <form action="/profile/{{owner.id}}" method="POST">
                             <button class="rounded-circle" style="border: none; background-color: transparent;">
@@ -26,12 +27,23 @@
                             </li>
                             <li class="list-group-item">
                                 <p class="card-text"> <strong>Destination:</strong> {{destination.name}}</p>
+
+                                <input type="text" value="{{arrivalDate}}" id="rating" hidden>
+
+
+
                             </li>
                             <li class="list-group-item">
-                                <p><span class="label"> <strong>Día de Salida:</strong> </span> 22 de mayo</p>
+                                <p><span class="label"> <strong>Día de Salida:</strong>
+                                        <p id="resultadoRating"></p>
+                                    </span>
+
+
                             </li>
                             <li class="list-group-item">
-                                <p><span class="label"> <strong>Hora de Salida:</strong> </span> 10:00 AM</p>
+                                <p><span class="label"> <strong>Hora de Salida:</strong> </span>
+                                <p id="hour"></p>
+                                </p>
                             </li>
                             <li class="list-group-item">
                                 <p>Car Model: {{owner.car.model}}</p>
@@ -53,47 +65,35 @@
                             {{/if}}
 
                         </div>
+
+                        {{#if../ loggedUser.isPassengerandIslogg}}
+                        <a class="btn btn-dark"
+                            href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a>
+
+                        {{/if}}
                     </div>
-                    <form action="/profile/{{owner.id}}" method="POST">
-                        <button>
-                            <div class="passengers col-6">
-                                <h6>Driver:</h6>
-                                <img src="{{owner.imageUrl}}" alt="Passenger 1">
-                                <span> {{owner.name}}</span>
-                            </div>
-                        </button>
-                    </form>
+                    {{/each}}
 
-                    <p>Modelo del coche: {{owner.car.model}}</p>
-
-                    {{#if../ loggedUser.isPassengerandIslogg}}
-                    {{#unless joined}}
-                    <form
-                        action="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}"
-                        method="POST" style="display: inline">
-                        <input type="text" class="form-control" name="idTrip" value="{{_id}}" hidden>
-                        <input type="submit" value="Apuntarme" class="btn btn-danger">
-                    </form>
-                    {{/unless}}
-                    {{/if}}
-                    {{#if../ loggedUser.isPassengerandIslogg}}
-                    <button><a
-                            href="/seachTrip/{{departureDay}}/{{origin.name}}/{{destination.name}}/{{origin.id}}/{{destination.id}}/{{_id}}/details">Detail</a></button>
-
-                    {{/if}}
 
                 </div>
 
 
-
-                {{/each}}
-
-                </ul>
-
             </div>
-            {{/each}}
+
+
+
+
+
+            </ul>
+
         </div>
+
+</div>
 </div>
 </div>
 
-<script src="../../js/bottoms.js" defer></script>
+
+
+
+<script src="/../js/bottoms.js">
+</script>

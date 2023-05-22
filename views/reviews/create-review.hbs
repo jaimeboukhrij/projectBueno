@@ -6,44 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/createReview" method="POST">
-                            <div class="row mb-4">
-                                <div class="col-6">
-                                    <select class="form-select" aria-label="Default select example" name="addressee">
-                                        <option selected>Choose user</option>
-                                        {{#each users}}
-                                        <option value="{{_id}}">{{name}}</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <input type="number" class="form-control" id="rating" placeholder="Rating"
-                                        name="rating">
-                                </div>
-                                <div class="col mt-5">
-                                    <label for="text" class="form-label">Message</label>
-                                    <input type="text" class="form-control" id="text" name="text">
-                                </div>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-dark">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{!--
-<h2 class="text-center">Create Review</h2>
-
-<div class="principal">
-    <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 90vh;">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
                         <form action="/createReview/{{idTrip}}" method="POST">
                             <div class="row mb-4">
                                 <div class="col-6">
@@ -75,20 +37,20 @@
                                             {{#each users}}
                                             <option value="{{_id}}">{{name}}</option>
                                             {{/each}}
-                                            >>>>>>> 744c290ab8af56fa59227b75e4e009da97bede6f
+
                                     </select>
                                 </div>
                                 <div class="col-6">
                                     <div class="rating">
-                                        <input type="radio" id="star5" name="rating" value="5" />
+                                        <input type="radio" id="star5" name="rating" value="1" />
                                         <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
-                                        <input type="radio" id="star4" name="rating" value="4" />
+                                        <input type="radio" id="star4" name="rating" value="2" />
                                         <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
                                         <input type="radio" id="star3" name="rating" value="3" />
                                         <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
-                                        <input type="radio" id="star2" name="rating" value="2" />
+                                        <input type="radio" id="star2" name="rating" value="4" />
                                         <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
-                                        <input type="radio" id="star1" name="rating" value="1" />
+                                        <input type="radio" id="star1" name="rating" value="5" />
                                         <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
                                     </div>
                                 </div>
@@ -106,4 +68,4 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>

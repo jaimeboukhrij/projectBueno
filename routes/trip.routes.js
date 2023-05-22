@@ -54,7 +54,6 @@ router.get("/seachTrip/:date/:origin/:destination/:idOrigin/:idDestination", (re
 
       const formattedTrips = formatJoiningTrips(trips, req.session.currentUser)
 
-
       if (trips.length > 0) {
         res.render("trip/list-trip", { formattedTrips })
       } else {
